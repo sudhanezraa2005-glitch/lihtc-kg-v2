@@ -1,0 +1,224 @@
+acs:
+  dataset: acs5
+  geography: tract
+  base_url: https://api.census.gov/data
+  years: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
+  states: ["01", "02", "04", "05", "06", "08", "09", "10", "11", "12", "13", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "44", "45", "46", "47", "48", "49", "50", "51", "53", "54", "55", "56"]
+  enabled_tables: [B01003, B19013, B17001, B25001, B25002, B25003, B25004, B25070, B25071, B25031, B23025, B03002]
+
+tables:
+  B01003:
+    title: Total Population
+    implemented: true
+    silver_output: data/silver/acs/b01003.parquet
+    variables:
+      total_population: B01003_001E
+    required_variables: [B01003_001E]
+  B19013:
+    title: Median Household Income
+    implemented: true
+    silver_output: data/silver/acs/b19013.parquet
+    variables:
+      median_household_income: B19013_001E
+    required_variables: [B19013_001E]
+  B17001:
+    title: Poverty Status
+    implemented: true
+    silver_output: data/silver/acs/b17001.parquet
+    variables:
+      poverty_status_universe: B17001_001E
+      population_below_poverty: B17001_002E
+      population_at_or_above_poverty: B17001_031E
+    required_variables: [B17001_001E, B17001_002E, B17001_031E]
+  B25001:
+    title: Housing Units
+    implemented: true
+    silver_output: data/silver/acs/b25001.parquet
+    variables:
+      housing_units: B25001_001E
+    required_variables: [B25001_001E]
+  B25002:
+    title: Occupancy Status
+    implemented: true
+    silver_output: data/silver/acs/b25002.parquet
+    variables:
+      occupancy_status_total: B25002_001E
+      occupied_housing_units: B25002_002E
+      vacant_housing_units: B25002_003E
+    required_variables: [B25002_001E, B25002_002E, B25002_003E]
+  B25003:
+    title: Tenure
+    implemented: true
+    silver_output: data/silver/acs/b25003.parquet
+    variables:
+      tenure_occupied_units: B25003_001E
+      owner_occupied_units: B25003_002E
+      renter_occupied_units: B25003_003E
+    required_variables: [B25003_001E, B25003_002E, B25003_003E]
+  B25004:
+    title: Vacancy Status
+    implemented: true
+    silver_output: data/silver/acs/b25004.parquet
+    variables:
+      vacant_units_total: B25004_001E
+      vacant_for_rent_units: B25004_002E
+      rented_not_occupied_units: B25004_003E
+      vacant_for_sale_units: B25004_004E
+      sold_not_occupied_units: B25004_005E
+      seasonal_recreational_units: B25004_006E
+      migrant_worker_vacant_units: B25004_007E
+      other_vacant_units: B25004_008E
+    required_variables: [B25004_001E, B25004_002E, B25004_003E, B25004_004E, B25004_005E, B25004_006E, B25004_007E, B25004_008E]
+  B25070:
+    title: Gross Rent as Percentage of Income
+    implemented: true
+    silver_output: data/silver/acs/b25070.parquet
+    variables:
+      gross_rent_pct_income_total: B25070_001E
+      gross_rent_pct_income_under_10: B25070_002E
+      gross_rent_pct_income_10_to_14: B25070_003E
+      gross_rent_pct_income_15_to_19: B25070_004E
+      gross_rent_pct_income_20_to_24: B25070_005E
+      gross_rent_pct_income_25_to_29: B25070_006E
+      gross_rent_pct_income_30_to_34: B25070_007E
+      gross_rent_pct_income_35_to_39: B25070_008E
+      gross_rent_pct_income_40_to_49: B25070_009E
+      gross_rent_pct_income_50_or_more: B25070_010E
+      gross_rent_pct_income_not_computed: B25070_011E
+    required_variables: [B25070_001E, B25070_002E, B25070_003E, B25070_004E, B25070_005E, B25070_006E, B25070_007E, B25070_008E, B25070_009E, B25070_010E, B25070_011E]
+  B25071:
+    title: Median Gross Rent as Percentage of Income
+    implemented: true
+    silver_output: data/silver/acs/b25071.parquet
+    variables:
+      median_gross_rent_pct_income: B25071_001E
+    required_variables: [B25071_001E]
+  B25031:
+    title: Median Gross Rent by Bedrooms
+    implemented: true
+    years: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
+    silver_output: data/silver/acs/b25031.parquet
+    variables:
+      median_gross_rent_total: B25031_001E
+      median_gross_rent_no_bedroom: B25031_002E
+      median_gross_rent_1_bedroom: B25031_003E
+      median_gross_rent_2_bedrooms: B25031_004E
+      median_gross_rent_3_bedrooms: B25031_005E
+      median_gross_rent_4_bedrooms: B25031_006E
+      median_gross_rent_5plus_bedrooms: B25031_007E
+    required_variables: [B25031_001E, B25031_002E, B25031_003E, B25031_004E, B25031_005E, B25031_006E, B25031_007E]
+  B23025:
+    title: Employment Status
+    implemented: true
+    years: [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
+    silver_output: data/silver/acs/b23025.parquet
+    variables:
+      employment_status_population_16plus: B23025_001E
+      labor_force: B23025_002E
+      civilian_labor_force: B23025_003E
+      employed_population: B23025_004E
+      unemployed_population: B23025_005E
+      armed_forces_population: B23025_006E
+      not_in_labor_force: B23025_007E
+    required_variables: [B23025_001E, B23025_002E, B23025_003E, B23025_004E, B23025_005E, B23025_006E, B23025_007E]
+  B03002:
+    title: Hispanic or Latino Origin by Race
+    implemented: true
+    silver_output: data/silver/acs/b03002.parquet
+    variables:
+      race_ethnicity_total: B03002_001E
+      not_hispanic_or_latino: B03002_002E
+      not_hispanic_white_alone: B03002_003E
+      not_hispanic_black_alone: B03002_004E
+      not_hispanic_american_indian_alaska_native_alone: B03002_005E
+      not_hispanic_asian_alone: B03002_006E
+      not_hispanic_native_hawaiian_pacific_islander_alone: B03002_007E
+      not_hispanic_other_race_alone: B03002_008E
+      not_hispanic_two_or_more_races: B03002_009E
+      hispanic_or_latino: B03002_012E
+      hispanic_white_alone: B03002_013E
+      hispanic_black_alone: B03002_014E
+      hispanic_american_indian_alaska_native_alone: B03002_015E
+      hispanic_asian_alone: B03002_016E
+      hispanic_native_hawaiian_pacific_islander_alone: B03002_017E
+      hispanic_other_race_alone: B03002_018E
+      hispanic_two_or_more_races: B03002_019E
+      hispanic_two_races_including_other: B03002_020E
+      hispanic_two_races_excluding_other_three_or_more: B03002_021E
+    required_variables: [B03002_001E, B03002_002E, B03002_003E, B03002_004E, B03002_005E, B03002_006E, B03002_007E, B03002_008E, B03002_009E, B03002_012E, B03002_013E, B03002_014E, B03002_015E, B03002_016E, B03002_017E, B03002_018E, B03002_019E, B03002_020E, B03002_021E]
+  B25024: {title: Units in Structure, implemented: false, variables: {}}
+  B25034: {title: Year Structure Built, implemented: false, variables: {}}
+  B25140: {title: Housing Costs by Tenure, implemented: false, variables: {}}
+  B15003: {title: Educational Attainment, implemented: false, variables: {}}
+  B25014: {title: Occupants per Room by Tenure, implemented: false, variables: {}}
+  B25041: {title: Bedrooms, implemented: false, variables: {}}
+
+gold:
+  output: data/gold/acs/tract_acs_snapshot.parquet
+  business_key: snapshot_id
+  enabled_fields:
+    - total_population
+    - median_household_income
+    - poverty_status_universe
+    - population_below_poverty
+    - population_at_or_above_poverty
+    - housing_units
+    - occupancy_status_total
+    - occupied_housing_units
+    - vacant_housing_units
+    - tenure_occupied_units
+    - owner_occupied_units
+    - renter_occupied_units
+    - vacant_units_total
+    - vacant_for_rent_units
+    - rented_not_occupied_units
+    - vacant_for_sale_units
+    - sold_not_occupied_units
+    - seasonal_recreational_units
+    - migrant_worker_vacant_units
+    - other_vacant_units
+    - gross_rent_pct_income_total
+    - gross_rent_pct_income_under_10
+    - gross_rent_pct_income_10_to_14
+    - gross_rent_pct_income_15_to_19
+    - gross_rent_pct_income_20_to_24
+    - gross_rent_pct_income_25_to_29
+    - gross_rent_pct_income_30_to_34
+    - gross_rent_pct_income_35_to_39
+    - gross_rent_pct_income_40_to_49
+    - gross_rent_pct_income_50_or_more
+    - gross_rent_pct_income_not_computed
+    - median_gross_rent_pct_income
+    - median_gross_rent_total
+    - median_gross_rent_no_bedroom
+    - median_gross_rent_1_bedroom
+    - median_gross_rent_2_bedrooms
+    - median_gross_rent_3_bedrooms
+    - median_gross_rent_4_bedrooms
+    - median_gross_rent_5plus_bedrooms
+    - employment_status_population_16plus
+    - labor_force
+    - civilian_labor_force
+    - employed_population
+    - unemployed_population
+    - armed_forces_population
+    - not_in_labor_force
+    - race_ethnicity_total
+    - not_hispanic_or_latino
+    - not_hispanic_white_alone
+    - not_hispanic_black_alone
+    - not_hispanic_american_indian_alaska_native_alone
+    - not_hispanic_asian_alone
+    - not_hispanic_native_hawaiian_pacific_islander_alone
+    - not_hispanic_other_race_alone
+    - not_hispanic_two_or_more_races
+    - hispanic_or_latino
+    - hispanic_white_alone
+    - hispanic_black_alone
+    - hispanic_american_indian_alaska_native_alone
+    - hispanic_asian_alone
+    - hispanic_native_hawaiian_pacific_islander_alone
+    - hispanic_other_race_alone
+    - hispanic_two_or_more_races
+    - hispanic_two_races_including_other
+    - hispanic_two_races_excluding_other_three_or_more
